@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class FlightTest {
 
@@ -19,13 +20,15 @@ public class FlightTest {
         plane = new Plane(PlaneType.BOEING737);
         departureTime = new Date(2020, 05, 13, 20, 00);
         flight = new Flight(plane, "EZY123", "Stanstead", "Edinburgh", departureTime);
-        passenger1 = new Passenger("Nick Montgomery", 2);
+        passenger1 = new Passenger("Nick Montgomery", 2, false);
     }
 
     @Test
     public void canAddPassenger() {
         flight.addPassenger(passenger1);
         assertEquals(1, flight.passengerCount());
+        assertTrue(passenger1.isPassengerCheckedIn());
+        assertEquals(1, passenger1.getSeatNumber());
     }
 
     @Test
@@ -38,6 +41,12 @@ public class FlightTest {
     public void returnFlightDate() {
         assertEquals("Sun Jun 13 20:00:00 BST 3920", flight.getDepartureTime().toString());
     }
+
+    @Test
+    public void testFlightCapacity() {
+        assertEquals(200, flight.planeCapacity());
+    }
+
 
 }
 

@@ -19,7 +19,7 @@ public class FlightManagerTest {
         departureTime = new Date(2020, 05, 13, 20, 00);
         flight = new Flight(plane, "EZY123", "Stanstead", "Edinburgh", departureTime);
         flightManager = new FlightManager(flight);
-        passenger1 = new Passenger("Nick Montgomery", 2);
+        passenger1 = new Passenger("Nick Montgomery", 2, false);
     }
 
     @Test

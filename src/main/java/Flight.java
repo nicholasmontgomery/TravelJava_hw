@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Flight {
 
@@ -26,6 +27,9 @@ public class Flight {
     public void addPassenger(Passenger passenger) {
         if (this.plane.getCapacityFromEnum() > this.passengerCount()) {
             this.passengers.add(passenger);
+            passenger.checkPassengerIn();
+            int generatedSeatNumber = (int) Math.random();
+            passenger.allocatePassengerSeatNumber(generatedSeatNumber);
         }
     }
 
