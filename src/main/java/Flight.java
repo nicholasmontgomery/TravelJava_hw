@@ -18,8 +18,26 @@ public class Flight {
         this.passengers = new ArrayList<Passenger>();
     }
 
+    public void addPassenger(Passenger passenger) {
+        if (this.plane.getCapacityFromEnum() > this.passengerCount()) {
+            this.passengers.add(passenger);
+        }
+    }
+
     public int passengerCount() {
         return this.passengers.size();
+    }
+
+    public int planeWeight() {
+        return this.plane.getTotalWeightFromEnum();
+    }
+
+    public int planeCapacity() {
+        return this.plane.getCapacityFromEnum();
+    }
+
+    public int remainingSeats() {
+        return this.plane.getCapacityFromEnum() - passengerCount();
     }
 }
 
